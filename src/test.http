@@ -1,0 +1,9 @@
+POST http://localhost:8081/addBook
+Content-Type: application/json
+
+{
+  "title": "Java Programming",
+  "author": "John Smith",
+  "isbn": "978-1234567890",
+  "price": 25.50
+}
