@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books - Book Haven</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Book Haven<span>.</span></div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/library" class="active">My Books</a>
+        <a href="/add-book">Add Book</a>
+    </nav>
+</header>
+
+<main class="library">
+    <div class="library-heading">
+        <p class="subtitle">YOUR COLLECTION</p>
+        <h1>My Books</h1>
+        <p class="description">All your favorite books in one place.</p>
+    </div>
+
+    <form action="/library" method="get" class="search-form">
+
+        <input
+                type="text"
+                name="keyword"
+                th:value="${keyword}"
+                placeholder="Search by title or author..."
+        >
+
+        <button type="submit">Search</button>
+
+        <a href="/library" class="clear-search">Clear</a>
+
+    </form>
+
+    <div class="book-list">
+
+        <div class="book-card" th:each="book : ${books}">
+
+            <h2 th:text="${book.title}">Book Title</h2>
+            <p th:text="${book.author}">Author</p>
+            <p class="book-price">
+                $<span th:text="${book.price}">0</span>
+            </p>
+
+            <div class="book-actions">
+                <a th:href="@{/edit-book/{id}(id=${book.id})}"
+                   class="edit-btn">Edit</a>
+
+                <form th:action="@{/delete-book/{id}(id=${book.id})}"
+                      method="post">
+                    <button type="submit" class="delete-btn">
+                        Delete
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <p th:if="${#lists.isEmpty(books)}">
+            Your library is empty. Add your first book!
+        </p>
+
+    </div>
+</main>
+
+<footer>
+    <p>Book Haven © 2026 | Your personal book collection</p>
+</footer>
+
+</body>
+</html>

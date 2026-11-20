@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Book Haven<span>.</span></div>
+
+    <nav>
+        <a href="/" class="active">Home</a>
+        <a href="/library">My Books</a>
+        <a href="/add-book">Add Book</a>
+    </nav>
+</header>
+
+<main class="hero">
+    <div class="hero-content">
+        <p class="subtitle">YOUR PERSONAL LIBRARY</p>
+
+        <h1>Every book has<br>
+            a story to tell.</h1>
+
+        <p class="description">
+            Organize your collection, discover your books
+            and keep your reading world in one place.
+        </p>
+
+        <div class="buttons">
+            <a href="/library" class="primary-btn">Explore Books</a>
+            <a href="/add-book" class="secondary-btn">+ Add a Book</a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="book-decoration">
+            <span>READ</span>
+            <span>EXPLORE</span>
+            <span>REPEAT</span>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Book Haven © 2026 | Your personal book collection</p>
+</footer>
+
+</body>
+</html>

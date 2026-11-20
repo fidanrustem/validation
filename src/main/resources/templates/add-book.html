@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book - Book Haven</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Book Haven<span>.</span></div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/library">My Books</a>
+        <a href="/add-book" class="active">Add Book</a>
+    </nav>
+</header>
+
+<main class="form-container">
+
+    <div class="form-heading">
+        <p class="subtitle">GROW YOUR COLLECTION</p>
+        <h1>Add a New Book</h1>
+        <p class="description">
+            Enter the details of your new book below.
+        </p>
+    </div>
+
+    <form th:action="@{/add-book}" th:object="${book}" method="post">
+
+        <div class="form-group">
+            <label>Book Title</label>
+            <input type="text" th:field="*{title}"
+                   placeholder="Enter book title" required>
+        </div>
+
+        <div class="form-group">
+            <label>Author</label>
+            <input type="text" th:field="*{author}"
+                   placeholder="Enter author's name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" th:field="*{price}"
+                   placeholder="Enter price" min="1" step="0.01" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Add Book</button>
+
+        <a href="/library" class="cancel-link">Cancel</a>
+
+    </form>
+
+</main>
+
+<footer>
+    <p>Book Haven © 2026 | Your personal book collection</p>
+</footer>
+
+</body>
+</html>
